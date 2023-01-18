@@ -1,0 +1,84 @@
+// question1
+function display(){
+    console.log( "1",hello")
+}
+display();
+// output-hello
+
+
+
+
+
+
+
+// question2
+function sum (a,b){
+    console.log( "2",a+b);
+}
+sum(3,7)
+// output-10
+
+// question3
+var x=21;
+var girl=function(){
+    console.log("3",x);
+    var x=20;
+}
+girl();
+// output-undefined
+
+
+// question4
+
+var x = 21;
+girl ();
+console.log(x)
+function girl() {
+    console.log("4",x);
+    var x = 20;
+};
+// output-undefined
+
+// question5
+
+
+var x = 21;
+a();
+b();
+
+  function a() {
+    
+   x = 20;
+  console.log(x);
+};
+ function b() {
+    
+    x = 40;
+   console.log(x);
+ }
+//  output-21,20,40
+
+// question6
+ 
+var x = 21;
+girl ();
+console.log(x)
+function girl() {
+    console.log(x);
+    var x = 20;
+};
+// output-
+
+// question7
+const factorial =(n) =>{
+    let result =1;
+    for(let i=1; i<=n;i++){
+        result=result*i
+    }
+    console.log(result);
+};
+console.log(factorial(5));
+
+// output-120
+
+
