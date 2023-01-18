@@ -1,0 +1,152 @@
+<h1>Count Characters</h1>
+<p>const countCharacters = (S) => 
+    {
+      let countofA=0;
+        let countofD=0;
+        for(let character of S){
+          if(character==="A"){
+            countofA++;
+          }
+          else if(character==="D"){
+            countofD++;
+          }
+        }
+    let B =[countofA,countofD];
+    return B;
+    };</p>
+    <!-- ------------------------------------------------------------------------ -->
+
+    <h1>Count the Heads</h1>
+    <p>var Count_Occ = (s) => 
+        {
+         let ab=s.length;
+         let newString = s.split("").sort().join("");
+         let ans="";
+         for(let i=0;i<ab;i++)
+         {
+           let count=0;
+           for(let j=0;j<ab;j++)
+           {
+             if(newString[i]===newString[j] && i>j)
+             {
+               break;
+             }
+             if(newString[i]===newString[j])
+             {
+               count=count+1;
+             }
+           }
+           if(count>1)
+           {
+             ans+=newString[i]+count;
+           }
+         }
+         return ans;
+        };</p>
+        <!-- --------------------------------------------------------------------- -->
+
+        <h1>Count the Vowels</h1>
+        <p>var Count_Vowels= (S) => 
+            {
+               let vowels='aeiou';
+               let count=0;
+               for(letter of vowels){
+                 for(character of S){
+                   if(letter===character){
+                     count++;
+                   }
+                 }
+               }
+               return count;
+            };</p>
+            <!-- ----------------------------------------------------------------- -->
+
+            <h1>Concatenate the Strings</h1>
+            <p>var Concatenate_Strings = (S1, S2) => 
+                {
+                  return S1.concat(S2);    
+                <!-- };</p>---------------------------------------------------------- -->
+
+                <h1>Find Length</h1>
+                <p>const findLength = (S) => 
+                    {
+                     let count=0;
+                     for(let letter of S){
+                       count++;
+                     }
+                     return count;
+                    };
+                     </p>
+                     <!-- -------------------------------------------------------------- -->
+
+                     <h1>Find the Winner</h1>
+                     <p>var Game_Winner = (S) => 
+                        {
+                          let countA=0;
+                          let countD=0;
+                          for(let i=0;i<S.length;i++)
+                          {
+                            if(S[i]==='A') {countA+=1;
+                              
+                            }
+                            else {countD+=1;
+                              
+                            }
+                            
+                          }
+                          if(countA>countD)
+                          {
+                            return "Aditya";
+                            
+                          }
+                          else if(countA<countD)
+                          {
+                            return "Danish";
+                            
+                          }
+                          else 
+                          {
+                            return "Draw";
+                            
+                          }
+                        };</p>
+                        <!-- ------------------------------------------------ -->
+
+                        <h1>Join Strings</h1>
+                        <p>const joinStrings = (S, P) => 
+                            {
+                              return S.concat(P);  
+                            };
+                             </p>
+                             <!-- -------------------------------------------- -->
+
+                             <h1>Plaindrome Check</h1>
+                             <p>var Palin_Check = (str) =>
+                                {
+                                    let revstr="";
+                                    let N=str.length;
+                                    for(let i=str.length-1;i>=0;i--){
+                                    revstr=revstr+str[i];
+                                }
+                                if(str === revstr){
+                                  return "True";
+                                  
+                                }
+                                else{
+                                  return "False";
+                                }
+                                };
+                                </p>
+                                <!-- --------------------------------------------- -->
+
+                                <h1>Reverse the String</h1>
+                                <p>var Reverse_String = (str) => 
+                                    {
+                                     let newstring="" ; 
+                                     let length=str.length;
+                                     while(length>0){
+                                       newstring=newstring + str[length-1];
+                                       length--;
+                                     }
+                                     return newstring;
+                                    };</p>
