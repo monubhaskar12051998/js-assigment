@@ -1,10 +1,8 @@
-<h1>"let studentRecords = [ {name: 'John', id: 123, marks : 98 },
-    {name: 'Baba', id: 101, marks : 23 },
-    {name: 'yaga', id: 200, marks : 45 },
-    {name: 'Wick', id: 115, marks : 75 } ] "</h1>
+We are interested in retrieving only the name of the students and all the names should be in caps.
+['JOHN', 'BABA', 'YAGA', 'WICK']
+*/
 
-    <p>
-        let studentRecords = [
+let studentRecords = [
   { name: "John", id: 123, marks: 98 },
   { name: "Baba", id: 101, marks: 23 },
   { name: "yaga", id: 200, marks: 45 },
@@ -13,10 +11,9 @@
 
 let names = [];
 
-for (let i = 0; i < studentRecords.length; i++) {
-  // console.log(studentRecords[i].name.toUpperCase());
+for (let i = 0; i < studentRecords.length; i++){
+
   names.push(studentRecords[i].name.toUpperCase());
 }
 
 console.log(names);
-    </p>
