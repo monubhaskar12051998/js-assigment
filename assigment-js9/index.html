@@ -1,19 +1,13 @@
 // question1
 function display(){
-    console.log( "ans1",hello")
+    console.log( "hello")
 }
 display();
 // output-hello
 
-
-
-
-
-
-
 // question2
 function sum (a,b){
-    console.log( "ans2",a+b);
+    console.log(a+b);
 }
 sum(3,7)
 // output-10
@@ -21,7 +15,7 @@ sum(3,7)
 // question3
 var x=21;
 var girl=function(){
-    console.log("ans3",x);
+    console.log(x);
     var x=20;
 }
 girl();
@@ -32,12 +26,13 @@ girl();
 
 var x = 21;
 girl ();
-console.log("ans4",x)
+console.log(x)
 function girl() {
-    console.log("ans4",x);
+    console.log(x);
     var x = 20;
 };
 // output-undefined
+
 
 // question5
 
@@ -49,36 +44,35 @@ b();
   function a() {
     
    x = 20;
-  console.log("ans5",x);
+  console.log(x);
 };
  function b() {
     
     x = 40;
-   console.log("ans5",x);
+   console.log(x);
  }
-//  output-21,20,40
+//  output-20,40
 
-// question6
+//  question6
  
 var x = 21;
 girl ();
-console.log("ans6",x)
+console.log(x)
 function girl() {
-    console.log("ans6",x);
+    console.log(x);
     var x = 20;
 };
-// output-
+// output-undefined/21
 
 // question7
-const factorial =(n) =>{
-    let result =1;
-    for(let i=1; i<=n;i++){
-        result=result*i
+function factorial(x){
+    let facto=1;
+    for(let i=x;i>0;i--)
+    {
+        facto*=i;
     }
-    console.log(result);
-};
-console.log(factorial(5));
+    console.log(facto);
+}
+factorial(5);
 
 // output-120
-
-
