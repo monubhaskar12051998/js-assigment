@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promises</title>
+</head>
+<body>
+   
+       <h3> 1) Write one example explaining how you can write a callback function ? </h3>
+    
+    <pre>
+        function cubeFunc(num, operation){
+            setTimeout(function(){
+                let ans=1;
+                ans = num**3;
+                operation(num, ans);
+            }, 2000)
+        }
+        
+        cubeFunc(9, function(no, ans){
+            console.log("The cube of ",no," is = ",ans);
+        })
+        
+
+        OUTPUT- The cube of 9 is = 729
+    </pre>
+    <br><br>
+
+    
+       <h3> 2) Write callback function to print numbers from 1 to 7, in which 1 should be printed after 1 sec , 2 should be printed after 2 sec, 3 should be printed after 3 sec and so on. 
+        Explain callback hell. </h3>
+       
+    
+    <pre>
+<p>Callback Hell is the pattern that forms in our code while using dependents or nested callbacks.</p>
+
+    let count=0;
+    setTimeout(function(){
+        console.log(++count);
+        setTimeout(function(){
+            console.log(++count);
+            setTimeout(function(){
+                console.log(++count);
+                setTimeout(function(){
+                    console.log(++count);
+                    setTimeout(function(){
+                        console.log(++count);
+                        setTimeout(function(){
+                            console.log(++count);
+                            setTimeout(function(){
+                                console.log(++count);
+                            },7000)
+                        },6000)
+                    },5000)
+                },4000)
+            },3000)
+        },2000)
+    },1000)
+    </pre>
+    <br><br>
+
+    
+       <h3> 3) Write promise function to print numbers from 1 to 7, in which 1 should be printed after 1 sec , 2 should be printed after 2 sec, 3 should be printed after 3 sec and so on. 
+    </h3>
+    <pre>
+        function printNos(n){
+            let P = new Promise(function(resolve){
+                setTimeout(function(){
+                    resolve(n);
+                },n*1000)
+            })
+            return P;
+        }
+        
+        printNos(1).then(function(n){
+            console.log(n);
+            return printNos(2);
+        }).then(function(n){
+            console.log(n);
+            return printNos(3);
+        }).then(function(n){
+            console.log(n);
+            return printNos(4);
+        }).then(function(n){
+            console.log(n);
+            return printNos(5);
+        }).then(function(n){
+            console.log(n);
+            return printNos(6);
+        }).then(function(n){
+            console.log(n);
+            return printNos(7);
+        }).then(function(n){
+            console.log(n);
+        })
+    </pre>
+    <br><br>
+
+   <h3>
+        4) Create a promise function accepting a argument, if yes is passed to the function then it should go to resolved state and print Promise Resolved, 
+        and if nothing is passed then it should go to reject state and catch the error and print Promise Rejected 
+    </h3>
+    <pre>
+        function promiseFunc(input){
+            let answer = new Promise(function(resolve, reject){
+                setTimeout(function(){
+                    if(input=="yes")
+                    {
+                        resolve("Promise Resolved");
+                    }
+                    else
+                    {
+                        reject("Promise Rejected");
+                    }
+                },1000)
+            })
+            return answer;
+        }
+        promiseFunc("yes").then(function(res){
+            console.log(res);
+        }).catch(function(err){
+            console.log(err);
+        })
+
+
+    </pre>
+    <br><br>
+
+    <h3>
+        5) Create example to explain callback function
+    </h3>
+    <pre>
+        A callback function is a function passed to another function as an argument. Callbacks promote asynchronous programming
+
+        function findSum(num1, num2, operation1){
+            setTimeout(function(){
+                let sum = num1 + num2;
+                operation1(num1, num2, sum);
+            }, 2000)
+        }
+        
+        findSum(26, 23, <strong>function(num1, num2, ans1){</strong>
+            console.log("The sum of",num1,"&",num2,":",ans1);
+        })
+
+        outut-The sum of 26 & 23 : 49
+
+    </pre>
+    <br><br>
+
+   <h3>
+        6) Create example to explain callback hell function
+    </h3>
+    <pre>
+        function findSum(num1, num2, operation1){
+            setTimeout(function(){
+                let sum = num1 + num2;
+                operation1(num1, num2, sum);
+            }, 2000)
+        }
+        
+        function squareOfSum(num, operation2){
+            setTimeout(function(){
+                let ans = num * num;
+                operation2(num, ans);
+            }, 2000)
+        }
+        
+        findSum(26, 23, <strong>function(num1, num2, ans1){</strong>
+            console.log("The Sum of",num1,"&",num2,":",ans1);
+            squareOfSum(ans1, <strong>function(num, ans2){</strong>
+                console.log("The Square of",num,":",ans2);
+            })
+        })
+
+        output-The Sum of 26 & 23 : 49
+        output-The Square of 49 : 2401
+
+    </pre>
+    <br><br>
+
+   <h3>
+        7) Create example to explain promises function
+    </h3>
+    <pre>
+        function findSum(num1,num2){
+            let pr = new Promise(function(res,rej){
+                setTimeout(function(){
+                    let sum = num1 + num2;
+                    if(isNaN(sum))
+                    {
+                        rej("Try Again! Enter a valid number");
+                    }
+                    else
+                    {
+                        res(sum);
+                    }
+                }, 2000)
+            })
+            return pr;
+        }
+        
+        findSum(26,23).then(function(ans){
+            console.log("Sum =", ans);
+        }).catch(function(err){
+            console.log(err);
+        })
+
+        output-Sum = 49
+
+    </pre>
+    <br><br>
+
+    <h3>
+        8) Create example to explain async await function
+    </h3>
+    <pre>
+        function findSum(num1,num2){
+            let pr = new Promise(function(res,rej){
+                setTimeout(function(){
+                    let sum = num1 + num2;
+                    if(isNaN(sum))
+                    {
+                        rej("Try Again! Enter a valid number");
+                    }
+                    else
+                    {
+                        res(sum);
+                    }
+                }, 2000)
+            })
+            return pr;
+        }
+
+        async function answer(){
+            try
+            {
+                let finalAns = await findSum(37,26);
+                console.log("The Sum = ",finalAns);
+            }
+            catch
+            {
+                console.log("Please enter a valid number!");
+            }
+        }
+        answer();
+
+        output-The Sum =  63
+
+        
+    </pre>
+    <br><br>
+
+   <h3>
+        9) Create example to explain promise.all function
+   </h3>
+    <pre>
+        function add(x1,x2){
+            let p1 = new Promise((res,rej)=>{
+                setTimeout(()=>{
+                    let sum = x1 + x2;
+                    if(isNaN(sum))
+                    {
+                        rej("Enter a valid number");
+                    }
+                    else
+                    {
+                        res(sum);
+                    }
+                },2000)
+            })
+            return p1;
+        }
+        
+        function mul(y1,y2){
+            let p2 = new Promise((res,rej)=>{
+                setTimeout(()=>{
+                    let product = y1 * y2;
+                    if(isNaN(product))
+                    {
+                        rej("Enter a valid number");
+                    }
+                    else
+                    {
+                        res(product);
+                    }
+                },2000)
+            })
+            return p2;
+        }
+        
+        function subtract(z1,z2){
+            let p3 = new Promise((res,rej)=>{
+                setTimeout(()=>{
+                    let diff=0;
+                    if(z1>z2)
+                    {
+                        diff = z1 - z2;
+                    }
+                    else
+                    {
+                        diff = z2 - z1;
+                    }
+                    
+                    if(isNaN(diff))
+                    {
+                        rej("Enter a valid number");
+                    }
+                    else
+                    {
+                        res(diff);
+                    }
+                },2000)
+            })
+            return p3;
+        }
+        
+        Promise.all([add(3,5),mul(13,24),subtract(12,56)]).then((result)=>{
+            console.log(result);
+            console.log(result[0]);
+            console.log(result[1]);
+            console.log(result[2]);
+        }).catch((error)=>{
+            console.log(error);
+        })
+
+        //[ 8, 312, 44 ]
+        //8
+        //312
+        //44
+    </pre>
+    <br><br>
+</body>
+</html>
